@@ -1,0 +1,6 @@
+将百度云中的模型下载下来  
+保存路径为
+models\facenet\20170512-110547\20170512-110547.pb
+models\facenet\20170512-110547\model-20170512-110547.ckpt-250000.data-00000-of-00001
+models\facenet\20170512-110547\model-20170512-110547.ckpt-250000.index
+models\facenet\20170512-110547\model-20170512-110547.meta
