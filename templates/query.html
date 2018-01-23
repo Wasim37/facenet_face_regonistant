@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据查询</title>
+    <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css?t=1515376178738" media="all">
+</head>
+<body>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+      <legend>数据查询</legend>
+    </fieldset>
+    <form class="layui-form"  action="/face/query" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户组</label>
+            <div class="layui-input-block">
+                <input type="text" name="ugroup" required  lay-verify="required" placeholder="请输入用户组" autocomplete="off" class="layui-input">
+                </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">上传文件</label>
+            <div class="layui-input-block">
+                 <button type="button" class="layui-btn" id="query_upload">
+                  <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo" >立即提交</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script src="//res.layui.com/layui/dist/layui.js?t=1515376178738" charset="utf-8"></script>
+    <script>
+        layui.use('upload','form', function(){
+            var $ = layui.jquery,upload = layui.upload,form=layui.form;
+
+          //执行实例
+              var uploadInst = upload.render({
+                elem: '#query_upload' //绑定元素
+                ,url: '/face/query' //上传接口
+                , data:{'ugroup':$('input[name=ugroup]').val()}
+                ,done: function(res){
+                    layer.msg('上传成功', {icon: 6});
+                }
+                ,error: function(){
+                  layer.msg('上传失败', {icon: 5});
+                }
+              });
+    });
+    </script>
+</body>
+</html>
